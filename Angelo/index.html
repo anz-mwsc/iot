@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Angelo's MVP</title>
+</head>
+
+<body>
+    <button id="button1">Button 1</button>
+    <button id="button2">Button 2</button>
+    <button id="button3">Button 3</button>
+    <button id="button4">Button 4</button>
+
+    <script>
+
+        function changeText(event) {
+
+            var myButton = event.currentTarget;
+            myButton.innerHTML = "World!";
+
+        }
+
+        document.getElementById("button1").addEventListener("click", changeText);
+        document.getElementById("button2").addEventListener("click", changeText);
+        document.getElementById("button3").addEventListener("click", changeText);
+        document.getElementById("button4").addEventListener("click", changeText);
+    </script>
+
+</body>
+
+</html>
