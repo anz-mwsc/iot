@@ -6,7 +6,7 @@ var fs = require("fs");
 var app = express();
 
 function executeCommand(command) {
-    fs.writeFileSync("~/command.sh", command, { encoding: 'utf8', flag: 'w' });
+    fs.writeFileSync("./command.sh", command, { encoding: 'utf8', flag: 'w' });
 
     exec('pkill x', function (error, stdout, stderr) {
         console.log('stdout: ' + stdout);
