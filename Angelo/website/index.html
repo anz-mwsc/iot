@@ -29,7 +29,9 @@
 
         .menu {
             width: 100px;
-            height: 100px;
+            height: 120px;
+            background-repeat: no-repeat;
+            background-position: center;
         }
 
         .menu.raspberry {
@@ -117,9 +119,9 @@
 
             // wrapper.className = "show-games";
             let request = new XMLHttpRequest();
-request.open("GET", "/playmariokart", true);
-request.onload = () => {console.log(request.responseText)}
-request.send();
+            request.open("GET", "/playmariokart", true);
+            request.onload = () => { console.log(request.responseText) }
+            request.send();
 
 
         }
