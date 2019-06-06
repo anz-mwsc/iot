@@ -113,9 +113,14 @@
 
         }
         function clickedGames(event) {
-            var wrapper = document.getElementById("wrapper");
+            // var wrapper = document.getElementById("wrapper");
 
-            wrapper.className = "show-games";
+            // wrapper.className = "show-games";
+            let request = new XMLHttpRequest();
+request.open("GET", "/playmariokart", true);
+request.onload = () => {console.log(request.responseText)}
+request.send();
+
 
         }
         function clickedGallery(event) {
