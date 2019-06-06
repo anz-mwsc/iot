@@ -32,6 +32,7 @@
             height: 120px;
             background-repeat: no-repeat;
             background-position: center;
+            background-size: 100px;
         }
 
         .menu:active:hover {
@@ -40,22 +41,18 @@
 
         .menu.raspberry {
             background-image: url("raspberry.png");
-            background-size: 100px;
         }
 
         .menu.games {
             background-image: url("games.png");
-            background-size: 100px;
         }
 
         .menu.gallery {
             background-image: url("gallery.png");
-            background-size: 100px;
         }
 
         .menu.iot {
             background-image: url("iot.png");
-            background-size: 100px;
         }
 
         .screen {
@@ -103,6 +100,44 @@
             width: 223px;
             height: 199px;
             background-repeat: no-repeat;
+
+.icon {
+            position: relative;
+            border: 2px solid silver;
+            height: 200px;
+            width: 200px;
+            display: inline-block;
+            margin-left: 20px;
+            margin-top: 20px;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 100px;
+            border-radius: 10px;
+        }
+
+        .icon:active:hover {
+            background-color: red;
+        }
+
+        .icon.shutdown {
+            background-image: url(shutdown.png)
+        }
+
+        .icon.reboot {
+            background-image: url(reboot.png)
+        }
+
+        .icon div {
+            background-color: rgba(0, 0, 0, 0.5);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 20px;
+            color: white;
+            text-align: center;
+        }
+
             
             
         }
@@ -111,7 +146,7 @@
 
 <body>
 
-    <div id="wrapper" class="">
+    <div id="wrapper" class="show-raspberry">
         <div id="left-nav">
             <div id="btn-raspberry" class="menu raspberry"></div>
             <div id="btn-games" class="menu games"></div>
@@ -120,7 +155,12 @@
         </div>
         <div id="main">
             <div class="screen raspberry">
-                <h1>RASPBERRY</h1>
+                <div class="icon shutdown">
+                    <div>Shutdown</div>
+                </div>
+                <div class="icon reboot">
+                    <div>Reboot</div>
+                </div>
             </div>
             <div class="screen games">
                 <h1>GAMES</h1><br>
@@ -138,6 +178,14 @@
 
     <script>
 
+        function hitURL(url) {
+
+            let request = new XMLHttpRequest();
+            request.open("GET", "/" + url, true);
+            request.onload = () => { console.log(request.responseText) }
+            request.send();
+        }
+
         function clickedRaspberry(event) {
             var wrapper = document.getElementById("wrapper");
 
@@ -148,11 +196,8 @@
             var wrapper = document.getElementById("wrapper");
 
             wrapper.className = "show-games";
-            //let request = new XMLHttpRequest();
-            // request.open("GET", "/playmariokart", true);
-            // request.onload = () => { console.log(request.responseText) }
-            // request.send();
 
+            //hitURL("playmariokart");
 
         }
         function clickedGallery(event) {
@@ -166,6 +211,12 @@
 
             wrapper.className = "show-iot";
 
+        }
+
+
+
+        function clickedShutDown() {
+            hitURL("shutdown")
         }
 
         document.getElementById("btn-raspberry").addEventListener("mousedown", clickedRaspberry);
