@@ -1,13 +1,41 @@
 <!DOCTYPE html>
 <html>
+<body>
 <td><a target="Index.html"  href= "https://www.raspberrypi.org/documentation/linux/usage/commands.md"> <img src="c.jpg" width= "120" title="RaspberryPi Commands"> </a></td>
 <h3> RaspberryPi Commands</h3>
 <td><a target="Index.html" href= "https://romsmania.cc"> <img src="Unknown.jpg" width="120" title="Launch Games"> </a></td>
 <h3> Launch Games </h3>
+<button id="Pahan">Pahan</button>
+<button id ="Hinata">Hinata</button>
+<button id="Angelo">Angelo</button>
+
+<script>
+    function changeText() {
+            
+            var myButton = document.getElementById("Pahan");
+
+            myButton.innerHTML="World!";
+
+        }
+
+        function changeText2(event) {
+            
+            var myButton = event.currentTarget;
+
+            myButton.innerHTML="Hello from the new world!";
+
+        }
+    
+    document.getElementById("Pahan").addEventListener("click",changeText2)
+    document.getElementById("Hinata").addEventListener("click",changeText2)
+    document.getElementById("Angelo").addEventListener("click",changeText2)
+
+</script>
 <td><a target="Index.html" href= "http://www.retrobrogaming.com/retropie-images.html"> <img src="camera.jpg" width="120" title="Gallery/Screenshots"> </a></td>
 <h3> Gallery/ Screenshots</h3>
 <td><img src="controller.jpg" width= "140" height="150">
 <h3> Remote Control </h3>
 <td><a target="Index.html" href= "https://www.youtube.com/watch?v=w6R_LG_zM9Y"> <img src="video.png" width="120" title="Retropie gaming footage" ></a></td>
 <h3> RetroPie Gaming Footage</h3>
+</body>
 </html>
