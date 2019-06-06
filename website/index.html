@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Angelo's MVP</title>
+
+    <style>
+        body {
+            margin: none;
+        }
+
+        div {
+            outline: 1px solid black;
+        }
+
+        #wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+
+        #left-nav {
+            position: relative;
+            overflow: hidden;
+            width: 100px;
+        }
+
+        .menu {
+            width: 100px;
+            height: 120px;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .menu:active:hover {
+            background-color: red;
+        }
+
+        .menu.raspberry {
+            background-image: url("raspberry.png");
+            background-size: 100px;
+        }
+
+        .menu.games {
+            background-image: url("games.png");
+            background-size: 100px;
+        }
+
+        .menu.gallery {
+            background-image: url("gallery.png");
+            background-size: 100px;
+        }
+
+        .menu.iot {
+            background-image: url("iot.png");
+            background-size: 100px;
+        }
+
+        .screen {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 101px;
+            bottom: 0;
+            right: 0;
+        }
+
+        #wrapper.show-raspberry .screen.raspberry {
+            display: block;
+        }
+
+        #wrapper.show-games .screen.games {
+            display: block;
+        }
+
+        #wrapper.show-gallery .screen.gallery {
+            display: block;
+        }
+
+        #wrapper.show-iot .screen.iot {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="wrapper" class="">
+        <div id="left-nav">
+            <div id="btn-raspberry" class="menu raspberry"></div>
+            <div id="btn-games" class="menu games"></div>
+            <div id="btn-gallery" class="menu gallery"></div>
+            <div id="btn-iot" class="menu iot"></div>
+        </div>
+        <div id="main">
+            <div class="screen raspberry">
+                <h1>RASPBERRY</h1>
+            </div>
+            <div class="screen games">
+                <h1>GAMES</h1>
+            </div>
+            <div class="screen gallery">
+                <h1>GALLERY</h1>
+            </div>
+            <div class="screen iot">
+                <h1>IOT</h1>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        function clickedRaspberry(event) {
+            var wrapper = document.getElementById("wrapper");
+
+            wrapper.className = "show-raspberry";
+
+        }
+        function clickedGames(event) {
+            var wrapper = document.getElementById("wrapper");
+
+            wrapper.className = "show-games";
+            //let request = new XMLHttpRequest();
+            // request.open("GET", "/playmariokart", true);
+            // request.onload = () => { console.log(request.responseText) }
+            // request.send();
+
+
+        }
+        function clickedGallery(event) {
+            var wrapper = document.getElementById("wrapper");
+
+            wrapper.className = "show-gallery";
+
+        }
+        function clickedIot(event) {
+            var wrapper = document.getElementById("wrapper");
+
+            wrapper.className = "show-iot";
+
+        }
+
+        document.getElementById("btn-raspberry").addEventListener("mousedown", clickedRaspberry);
+        document.getElementById("btn-games").addEventListener("mousedown", clickedGames);
+        document.getElementById("btn-gallery").addEventListener("mousedown", clickedGallery);
+        document.getElementById("btn-iot").addEventListener("mousedown", clickedIot);
+    </script>
+
+</body>
+
+</html>
