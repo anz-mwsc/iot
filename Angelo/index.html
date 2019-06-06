@@ -51,47 +51,88 @@
             background-image: url("iot.png");
             background-size: 100px;
         }
+
+        .screen {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 101px;
+            bottom: 0;
+            right: 0;
+        }
+
+        #wrapper.show-raspberry .screen.raspberry {
+            display: block;
+        }
+
+        #wrapper.show-games .screen.games {
+            display: block;
+        }
+
+        #wrapper.show-gallery .screen.gallery {
+            display: block;
+        }
+
+        #wrapper.show-iot .screen.iot {
+            display: block;
+        }
     </style>
 </head>
 
 <body>
 
-    <div id="wrapper">
+    <div id="wrapper" class="">
         <div id="left-nav">
             <div id="btn-raspberry" class="menu raspberry"></div>
-            <div id="btn-game" class="menu games"></div>
+            <div id="btn-games" class="menu games"></div>
             <div id="btn-gallery" class="menu gallery"></div>
             <div id="btn-iot" class="menu iot"></div>
         </div>
         <div id="main">
-            <div class="screen raspberry"></div>
-            <div class="screen game"></div>
-            <div class="screen gallery"></div>
-            <div class="screen iot"></div>
+            <div class="screen raspberry">
+                <h1>RASPBERRY</h1>
+            </div>
+            <div class="screen games">
+                <h1>GAMES</h1>
+            </div>
+            <div class="screen gallery">
+                <h1>GALLERY</h1>
+            </div>
+            <div class="screen iot">
+                <h1>IOT</h1>
+            </div>
         </div>
     </div>
 
     <script>
 
         function clickedRaspberry(event) {
-            alert("First menu");
+            var wrapper = document.getElementById("wrapper");
+
+            wrapper.className = "show-raspberry";
 
         }
-        function clickedGame(event) {
-            alert("Second menu");
+        function clickedGames(event) {
+            var wrapper = document.getElementById("wrapper");
+
+            wrapper.className = "show-games";
 
         }
         function clickedGallery(event) {
-            alert("Third menu");
+            var wrapper = document.getElementById("wrapper");
+
+            wrapper.className = "show-gallery";
 
         }
         function clickedIot(event) {
-            alert("Fourth menu");
+            var wrapper = document.getElementById("wrapper");
+
+            wrapper.className = "show-iot";
 
         }
 
         document.getElementById("btn-raspberry").addEventListener("click", clickedRaspberry);
-        document.getElementById("btn-game").addEventListener("click", clickedGame);
+        document.getElementById("btn-games").addEventListener("click", clickedGames);
         document.getElementById("btn-gallery").addEventListener("click", clickedGallery);
         document.getElementById("btn-iot").addEventListener("click", clickedIot);
     </script>
