@@ -1,8 +1,22 @@
 var express = require('express');
 const { exec } = require('child_process');
+var fs = require("fs");
 
 
 var app = express();
+
+function executeCommand(command) {
+    fs.writeFileSync("~/command.sh", command, { encoding: 'utf8', flag: 'w' });
+
+    exec('pkill x', function (error, stdout, stderr) {
+        console.log('stdout: ' + stdout);
+        console.log('stderr: ' + stderr);
+        if (error !== null) {
+            console.log('exec error: ' + error);
+        }
+    });
+}
+
 
 app.use('/', express.static('website'));
 
