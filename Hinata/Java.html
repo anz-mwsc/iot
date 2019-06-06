@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Java Lesson</title>
+    </head>
+        <body>
+           <button id="hello1">Button1</button>
+           <button id="hello2">Button2</button>
+           <button id="hello3">Button3</button>
+           <button id="hello4">Button4</button>
+
+           <script>
+
+                 function changeText(event) {
+                        var myButton = event.currentTarget;
+
+                        myButton.innerHTML = "World";
+                 }
+
+                 function changeText2(event) {
+                        var myButton = event.currentTarget;
+
+                        myButton.innerHTML = "Hello from the new World";
+                 }
+
+                 document.getElementById("hello1").addEventListener("click", changeText2);
+                 document.getElementById("hello2").addEventListener("click", changeText2);
+                 document.getElementById("hello3").addEventListener("click", changeText2);
+                 document.getElementById("hello4").addEventListener("click", changeText2);
+
+
+             
+            </script>
+    
+        </body>
+</html>
