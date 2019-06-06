@@ -3,27 +3,97 @@
 
 <head>
     <title>Angelo's MVP</title>
+
+    <style>
+        body {
+            margin: none;
+        }
+
+        div {
+            outline: 1px solid black;
+        }
+
+        #wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+
+        #left-nav {
+            position: relative;
+            overflow: hidden;
+            width: 100px;
+        }
+
+        .menu {
+            width: 100px;
+            height: 100px;
+        }
+
+        .menu.raspberry {
+            background-image: url("raspberry.png");
+            background-size: 100px;
+        }
+
+        .menu.games {
+            background-image: url("games.png");
+            background-size: 100px;
+        }
+
+        .menu.gallery {
+            background-image: url("gallery.png");
+            background-size: 100px;
+        }
+
+        .menu.iot {
+            background-image: url("iot.png");
+            background-size: 100px;
+        }
+    </style>
 </head>
 
 <body>
-    <button id="button1">Button 1</button>
-    <button id="button2">Button 2</button>
-    <button id="button3">Button 3</button>
-    <button id="button4">Button 4</button>
+
+    <div id="wrapper">
+        <div id="left-nav">
+            <div id="btn-raspberry" class="menu raspberry"></div>
+            <div id="btn-game" class="menu games"></div>
+            <div id="btn-gallery" class="menu gallery"></div>
+            <div id="btn-iot" class="menu iot"></div>
+        </div>
+        <div id="main">
+            <div class="screen raspberry"></div>
+            <div class="screen game"></div>
+            <div class="screen gallery"></div>
+            <div class="screen iot"></div>
+        </div>
+    </div>
 
     <script>
 
-        function changeText(event) {
+        function clickedRaspberry(event) {
+            alert("First menu");
 
-            var myButton = event.currentTarget;
-            myButton.innerHTML = "World!";
+        }
+        function clickedGame(event) {
+            alert("Second menu");
+
+        }
+        function clickedGallery(event) {
+            alert("Third menu");
+
+        }
+        function clickedIot(event) {
+            alert("Fourth menu");
 
         }
 
-        document.getElementById("button1").addEventListener("click", changeText);
-        document.getElementById("button2").addEventListener("click", changeText);
-        document.getElementById("button3").addEventListener("click", changeText);
-        document.getElementById("button4").addEventListener("click", changeText);
+        document.getElementById("btn-raspberry").addEventListener("click", clickedRaspberry);
+        document.getElementById("btn-game").addEventListener("click", clickedGame);
+        document.getElementById("btn-gallery").addEventListener("click", clickedGallery);
+        document.getElementById("btn-iot").addEventListener("click", clickedIot);
     </script>
 
 </body>
