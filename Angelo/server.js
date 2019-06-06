@@ -17,6 +17,9 @@ function executeCommand(command) {
     });
 }
 
+function runGame(gamePath, gameSystem) {
+    executeCommand("/opt/retropie/supplementary/runcommand/runcommand.sh 0 _SYS_ " + gameSystem + " /home/pi/RetroPie/roms/" + gamePath);
+}
 
 app.use('/', express.static('website'));
 
@@ -36,13 +39,15 @@ app.get('/shutdown', function (req, res) {
 app.get('/playmariokart', function (req, res) {
     res.send("Starting Mario Kart");
 
-    exec('/opt/retropie/supplementary/runcommand/runcommand.sh 0 _SYS_ n64 /home/pi/RetroPie/roms/n64/MarioKart.z64', function (error, stdout, stderr) {
-        console.log('stdout: ' + stdout);
-        console.log('stderr: ' + stderr);
-        if (error !== null) {
-            console.log('exec error: ' + error);
-        }
-    });
+    runGame("n64/MarioKart.z64", "n64");
+
+    // exec('/opt/retropie/supplementary/runcommand/runcommand.sh 0 _SYS_ n64 /home/pi/RetroPie/roms/n64/MarioKart.z64', function (error, stdout, stderr) {
+    //     console.log('stdout: ' + stdout);
+    //     console.log('stderr: ' + stderr);
+    //     if (error !== null) {
+    //         console.log('exec error: ' + error);
+    //     }
+    // });
 })
 
 
