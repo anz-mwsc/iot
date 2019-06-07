@@ -80,28 +80,22 @@
             display: block;
         }
 
-        #n64mariokart{
-            position: absolute;
-            left: 25px;
-            top: 100px;
+        .icon.n64mariokart {
             background-image: url(n64mariokart.png);
-            background-size: 223px;
-            width: 223px;
-            height: 199px;
-            background-repeat: no-repeat;
-            
         }
-        #tetris2{
-            position: absolute;
-            left: 285px;
-            top: 100px;
-            background-image: url(teris2.png);
-            background-size: 223px;
-            width: 223px;
-            height: 199px;
-            background-repeat: no-repeat;
+
+        .ico.tetris2 {
+            background-image: url(terris2.png);
         }
-.icon {
+
+        .icon.tetris {
+            background-image: url(tetris.jpg);
+        }
+        .icon.supermariokart {
+            background-image: url(supermariokart.jpg);
+        }
+
+        .icon {
             position: relative;
             border: 2px solid silver;
             height: 200px;
@@ -111,7 +105,7 @@
             margin-top: 20px;
             background-repeat: no-repeat;
             background-position: center;
-            background-size: 100px;
+            background-size: 200px;
             border-radius: 10px;
         }
 
@@ -137,22 +131,6 @@
             color: white;
             text-align: center;
         }
-
-            
-            
-        
-        #tetris{
-            position: absolute;
-            left: 285px;
-            top: 100px;
-            background-image: url(tetris.png);
-            background-size: 223px;
-            width: 223px;
-            height: 199px;
-            background-repeat: no-repeat;
-            
-            
-        }
     </style>
 </head>
 
@@ -174,69 +152,103 @@
                     <div>Reboot</div>
                 </div>
             </div>
+
+
             <div class="screen games">
-                <h1>GAMES</h1><br>
-                <div id="n64mariokart"></div>
-                <div id="tetris2"></div>
-                <div id="tetris"></div>
+                <div id= "btn-mariokart" class="icon n64mariokart">
+                    <div>Mario kart 64</div>
+                </div>
+                <div id= "btn-supermariokart" class="icon supermariokart">
+                    <div>Super Mario Kart</div>
+                </div>
+                <div id="btn-tetris" class="icon tetris">
+                    <div>Tetris</div>
+                </div>
+                <div id="btn-tetris2" class="icon tetris2">
+                    <div>Tetris 2</div>
+                </div>
+        
             </div>
+
+
             <div class="screen gallery">
                 <h1>GALLERY</h1>
             </div>
+
+
             <div class="screen iot">
                 <h1>IOT</h1>
             </div>
-        </div>
-    </div>
 
-    <script>
+            <script>
 
-        function hitURL(url) {
+                function hitURL(url) {
 
-            let request = new XMLHttpRequest();
-            request.open("GET", "/" + url, true);
-            request.onload = () => { console.log(request.responseText) }
-            request.send();
-        }
+                    let request = new XMLHttpRequest();
+                    request.open("GET", "/" + url, true);
+                    request.onload = () => { console.log(request.responseText) }
+                    request.send();
+                }
 
-        function clickedRaspberry(event) {
-            var wrapper = document.getElementById("wrapper");
+                function clickedRaspberry(event) {
+                    var wrapper = document.getElementById("wrapper");
 
-            wrapper.className = "show-raspberry";
+                    wrapper.className = "show-raspberry";
 
-        }
-        function clickedGames(event) {
-            var wrapper = document.getElementById("wrapper");
+                }
+                function clickedGames(event) {
+                    var wrapper = document.getElementById("wrapper");
 
-            wrapper.className = "show-games";
+                    wrapper.className = "show-games";
+                }
 
-            //hitURL("playmariokart");
+                function clickedMariokart(event) {
+                hitURL("playmariokart");
 
-        }
-        function clickedGallery(event) {
-            var wrapper = document.getElementById("wrapper");
+                }
+                function clickedTetris(event) {
+                hitURL("playtetris");
 
-            wrapper.className = "show-gallery";
+                }
+                function clickedTetris2(event) {
+                hitURL("playtetris2");
 
-        }
-        function clickedIot(event) {
-            var wrapper = document.getElementById("wrapper");
+                }
+                function clickedSupermariokart(event) {
+                hitURL("playsupermariokart");
 
-            wrapper.className = "show-iot";
+                }
+                function clickedGallery(event) {
+                    var wrapper = document.getElementById("wrapper");
 
-        }
+                    wrapper.className = "show-gallery";
+
+                }
+                function clickedIot(event) {
+                    var wrapper = document.getElementById("wrapper");
+
+                    wrapper.className = "show-iot";
+
+                }
 
 
 
-        function clickedShutDown() {
-            hitURL("shutdown")
-        }
+                function clickedShutDown() {
+                    hitURL("shutdown")
+                }
 
-        document.getElementById("btn-raspberry").addEventListener("mousedown", clickedRaspberry);
-        document.getElementById("btn-games").addEventListener("mousedown", clickedGames);
-        document.getElementById("btn-gallery").addEventListener("mousedown", clickedGallery);
-        document.getElementById("btn-iot").addEventListener("mousedown", clickedIot);
-    </script>
+                document.getElementById("btn-raspberry").addEventListener("mousedown", clickedRaspberry);
+                document.getElementById("btn-games").addEventListener("mousedown", clickedGames);
+                document.getElementById("btn-gallery").addEventListener("mousedown", clickedGallery);
+                document.getElementById("btn-iot").addEventListener("mousedown", clickedIot);
+
+
+                document.getElementById("btn-mariokart").addEventListener("mousedown", clickedMariokart);
+                document.getElementById("btn-tetris").addEventListener("mousedown", clickedTetris);
+                document.getElementById("btn-tetris2").addEventListener("mousedown", clickedTetris2);
+                document.getElementById("btn-supermariokart").addEventListener("mousedown", clickedSupermariokart);
+        
+            </script>
 
 </body>
 
