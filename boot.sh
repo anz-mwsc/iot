@@ -6,5 +6,5 @@ do
     echo "Starting UI..."
 	startx
     echo "Launching game..."
-	./command.sh
+	/home/pi/git/iot/command.sh
 done
